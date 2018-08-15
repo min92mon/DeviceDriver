@@ -1,6 +1,6 @@
 obj-m   := minmon.o
 
-KDIR    := /home/parallels/Work/mango24r2/kernel/kernel 
+KDIR    := ~/Work/mango24r2/kernel/kernel 
 
 all:
 	make -C $(KDIR) SUBDIRS=$(PWD) modules

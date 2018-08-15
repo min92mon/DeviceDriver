@@ -23,6 +23,36 @@ static int mm_open(struct inode *inode, struct file *flip);
 static int mm_release(struct inode *inode, struct file *flip);
 static int mm_write(struct file *flip, const char *buf, size_t count, loff_t *f_pos);
 static int mm_read(struct file *flip, const char *buf, size_t count, loff_t *f_pos);
+static int mm_ioctl(struct file *flip, unsigned int cmd, unsigned long arg);
+
+static int mm_ioctl(struct file *flip, unsigned int cmd, unsigned long arg)
+{
+		switch(cmd)
+		{
+				case 0: 
+						printk("\ncmd = 0\n");break;
+				case 1:
+						printk("\ncmd = 1\n");break;
+				case 2:
+						printk("\ncmd = 2\n");break;
+				case 3:
+						printk("\ncmd = 3\n");break;
+				case 4:
+						printk("\ncmd = 4\n");break;
+				case 5:
+						printk("\ncmd = 5\n");break;
+				case 6:
+						printk("\ncmd = 6\n");break;
+				case 7:
+						printk("\ncmd = 7\n");break;
+				case 8:
+						printk("\ncmd = 8\n");break;
+				default:
+						return 0;
+		}
+		return 0;
+}
+
 static int mm_open(struct inode *inode, struct file *flip)
 {
 	printk("Device Open!!!\n");
@@ -52,6 +82,7 @@ static struct file_operations mm_fops = {
 						.release = mm_release,
 						.write = mm_write,
 						.read = mm_read,
+						.unlocked_ioctl = mm_ioctl,
 					};
 
 static int mm_register_cdev(void)

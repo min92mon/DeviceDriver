@@ -13,6 +13,7 @@ int main(void)
     int fd;
     int retn;
     char buf[100] = "write...\n";
+	int flag=0;
     fd = open("/dev/Minmon",O_RDWR);
 
     printf("fd = %d\n", fd);
@@ -29,6 +30,25 @@ int main(void)
 	
     retn = read(fd,buf,20);
     printf("\ndata : %s\n",buf);
+
+	getchar();
+	ioctl(fd,0,flag);
+	getchar();
+	ioctl(fd,1,flag);
+	getchar();
+	ioctl(fd,2,flag);
+	getchar();
+	ioctl(fd,3,flag);
+	getchar();
+	ioctl(fd,4,flag);
+	getchar();
+	ioctl(fd,5,flag);
+	getchar();
+	ioctl(fd,6,flag);
+	getchar();
+	ioctl(fd,7,flag);
+	getchar();
+	ioctl(fd,8,flag);
     close(fd);
     
     return 0;
