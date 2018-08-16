@@ -7,9 +7,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include <termio.h>
 
-#include "minmon.h"
 int main(void)
 {
     int fd;
@@ -33,16 +31,25 @@ int main(void)
     retn = read(fd,buf,20);
     printf("\ndata : %s\n",buf);
 
-/*	ioctl(fd,MM_LED_ON,flag);
-	ioctl(fd,MM_GETSTATE,flag);
 	getchar();
-	ioctl(fd,MM_LED_OFF,flag);
-	ioctl(fd,MM_GETSTATE,flag);
+	ioctl(fd,0,flag);
 	getchar();
-	ioctl(fd,MM_GETSTATE,flag);
-*/	
-	
-	close(fd);
+	ioctl(fd,1,flag);
+	getchar();
+	ioctl(fd,2,flag);
+	getchar();
+	ioctl(fd,3,flag);
+	getchar();
+	ioctl(fd,4,flag);
+	getchar();
+	ioctl(fd,5,flag);
+	getchar();
+	ioctl(fd,6,flag);
+	getchar();
+	ioctl(fd,7,flag);
+	getchar();
+	ioctl(fd,8,flag);
+    close(fd);
     
     return 0;
 }
